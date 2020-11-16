@@ -14,6 +14,9 @@ export default function App() {
       setPage("result");
     }
   }, []);
+  useEffect(() => {
+    if (name) localStorage.setItem('name', name);
+  }, [name])
 
   const goToPage = (page) => () => setPage(page);
 

@@ -63,7 +63,7 @@ export default function Progress({ onNextPage }) {
 
   const word = words[wordNumber].replace(/\u0301/g, "");
   return (
-    <div class="progress">
+    <div className="progress">
       <h2>
         Слово {wordNumber + 1}/{words.length}
       </h2>

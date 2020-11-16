@@ -10,8 +10,9 @@ function getGrade(correct, total) {
 //   console.log(i, getGrade(i, 100));
 // }
 
-export default function Result({ name }) {
+export default function Result() {
   const answers = JSON.parse(localStorage.getItem("answers"));
+  const name = localStorage.getItem("name");
   const correctAnswers = answers.reduce((prev, curr) => {
     return prev + curr.isCorrect;
   }, 0);
