@@ -1,5 +1,5 @@
-import React from "react";
-import { encode } from "../utils";
+import React, { useEffect } from "react";
+import { encode, ymUserParams } from "../utils";
 
 function getGrade(correct, total) {
   let res = (correct / total) * (5 - 2) + 2;
@@ -19,6 +19,16 @@ export default function Result() {
   const totalQuestions = answers.length;
   const percent = ((correctAnswers / totalQuestions) * 100).toFixed(2);
   const grade = getGrade(correctAnswers, totalQuestions);
+  const hash = encode(name + correctAnswers);
+  useEffect(() => {
+    ymUserParams({
+      name,
+      correctAnswers,
+      totalQuestions,
+      percent,
+      grade
+    });
+  }, []);
   return (
     <div className="result">
       <h1>Результаты</h1>
@@ -28,7 +38,7 @@ export default function Result() {
       </p>
       <p>Оценка: {grade}</p>
       <p>Отправьте снимок этой страницы преподавателю.</p>
-      <p>{encode(name + correctAnswers)}</p>
+      <p>{hash}</p>
     </div>
   );
 }

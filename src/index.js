@@ -3,10 +3,12 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import * as Sentry from "@sentry/react";
 
-Sentry.init({
-  dsn:
-    "https://59fb7f6408f14295be3845cf393face8@o293087.ingest.sentry.io/5517954"
-});
+if (process.env.NODE_ENV === "production") {
+  Sentry.init({
+    dsn:
+      "https://59fb7f6408f14295be3845cf393face8@o293087.ingest.sentry.io/5517954"
+  });
+}
 
 const rootElement = document.getElementById("root");
 ReactDOM.render(
