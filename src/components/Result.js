@@ -3,7 +3,7 @@ import { encode } from "../utils";
 
 function getGrade(correct, total) {
   let res = (correct / total) * (5 - 2) + 2;
-  return Math.ceil(res);
+  return Math.round(res);
 }
 
 // for (let i = 0; i <= 100; i++) {

@@ -1,11 +1,7 @@
 import React, { useEffect, useState } from "react";
-import words1 from "../words";
+import words from "../words";
 import { TIME_LIMIT } from "./constants";
 import Timer from "./Timer";
-// const words = words1.sort((a, b) =>
-//   a.length > b.length ? -1 : a.length < b.length ? 1 : 0
-// );
-const words = words1.slice(0, 10);
 
 function isVowel(s) {
   return /^[аеёиоуыэюя]$/i.test(s);
