@@ -26,9 +26,9 @@ export default function Result() {
       correctAnswers,
       totalQuestions,
       percent,
-      grade
+      grade,
     });
-  }, []);
+  }, [name, correctAnswers, totalQuestions, percent, grade]);
   return (
     <div className="result">
       <h1>Результаты</h1>

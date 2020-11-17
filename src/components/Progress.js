@@ -38,13 +38,12 @@ export default function Progress({ onNextPage }) {
       isCorrect: selectedPosition === correctPosition
     });
 
-    localStorage.setItem("answers", JSON.stringify(answers));
-
     setWordNumber((prevValue) => {
       const newValue = prevValue + 1;
       if (newValue < words.length) {
         return newValue;
       } else {
+        localStorage.setItem("answers", JSON.stringify(answers));
         onNextPage();
         return undefined;
       }
