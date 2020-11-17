@@ -12,22 +12,24 @@ export default function Welcome({ onNextPage, name, setName }) {
       <p>Время ограничено: {TIME_LIMIT} секунд на слово</p>
       <br />
       <p>Для прохождения теста, введите фамилию и имя:</p>
-      <input
-        className="ant-input"
-        type="text"
-        value={name}
-        onChange={handleChange}
-        placeholder="Фамилия Имя"
-      />
-      <br />
-      <br />
-      <button
-        className="ant-btn-primary"
-        onClick={onNextPage}
-        disabled={isBtnDisabled}
-      >
-        Начать
+      <form onSubmit={onNextPage}>
+        <input
+          className="ant-input"
+          type="text"
+          value={name}
+          onChange={handleChange}
+          placeholder="Фамилия Имя"
+        />
+        <br />
+        <br />
+        <button
+          className="ant-btn-primary"
+          type="submit"
+          disabled={isBtnDisabled}
+        >
+          Начать
       </button>
+      </form>
     </div>
   );
 }
