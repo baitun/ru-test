@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { encode, ymUserParams } from "../utils";
 
 function getGrade(correct, total) {
-  let res = (correct / total) * (5 - 2) + 2;
+  let res = (correct / total) * 5; // (5 - 2) + 2;
   return Math.round(res);
 }
 
