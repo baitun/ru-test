@@ -35,7 +35,7 @@ export default function Progress({ onNextPage }) {
       word,
       selectedPosition,
       correctPosition,
-      isCorrect: selectedPosition === correctPosition
+      isCorrect: selectedPosition === correctPosition,
     });
 
     setWordNumber((prevValue) => {
@@ -57,6 +57,8 @@ export default function Progress({ onNextPage }) {
   if (!words[wordNumber]) return <>No word</>;
 
   const word = words[wordNumber].replace(/\u0301/g, "");
+  const isBtnDisabled =
+    typeof selectedPosition === "undefined" && timeLeft != 0;
   return (
     <div className="progress">
       <h2>
@@ -85,7 +87,11 @@ export default function Progress({ onNextPage }) {
       <br />
       <br />
       <div>
-        <button className="ant-btn-primary" onClick={next}>
+        <button
+          disabled={isBtnDisabled}
+          className="ant-btn-primary"
+          onClick={next}
+        >
           Далее
         </button>
       </div>
