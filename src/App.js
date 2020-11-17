@@ -22,7 +22,7 @@ export default function App() {
 
   switch (page) {
     case "progress":
-      return <Progress onNextPage={goToPage("result")} />;
+      return <Progress onNextPage={goToPage("result")} name={name} />;
     case "result":
       return <Result name={name} />;
 

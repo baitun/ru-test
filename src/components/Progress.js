@@ -9,7 +9,7 @@ function isVowel(s) {
 
 let answers = [];
 
-export default function Progress({ onNextPage }) {
+export default function Progress({ onNextPage, name }) {
   const [timeLeft, setTimeLeft] = useState(TIME_LIMIT);
   const [wordNumber, setWordNumber] = useState(0);
   const [selectedPosition, setSelectedPosition] = useState(undefined);
@@ -58,13 +58,14 @@ export default function Progress({ onNextPage }) {
 
   const word = words[wordNumber].replace(/\u0301/g, "");
   const isBtnDisabled =
-    typeof selectedPosition === "undefined" && timeLeft != 0;
+    typeof selectedPosition === "undefined" && timeLeft !== 0;
   return (
     <div className="progress">
       <h2>
         Слово {wordNumber + 1}/{words.length}
       </h2>
-      <div>Нажмите на гласную букву на которую падает ударение</div>
+      <p>Студент: {name}</p>
+      <p>Нажмите на гласную букву на которую падает ударение.</p>
       <Timer timeLeft={timeLeft} />
       <div className={timeLeft < 1 ? "word blurred" : "word"}>
         {[...word].map((ch, i) => {
