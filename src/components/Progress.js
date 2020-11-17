@@ -36,6 +36,7 @@ export default function Progress({ onNextPage, name }) {
       selectedPosition,
       correctPosition,
       isCorrect: selectedPosition === correctPosition,
+      time: TIME_LIMIT - timeLeft,
     });
 
     setWordNumber((prevValue) => {
