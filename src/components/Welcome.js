@@ -4,15 +4,21 @@ import { TIME_LIMIT } from "./constants";
 export default function Welcome({ onNextPage, name, setName }) {
   const handleChange = (event) => setName(event.target.value);
   const isBtnDisabled = name.length < 4;
+  function handleSubmit(e) {
+    e.preventDefault();
+    onNextPage();
+  }
   return (
     <div>
       <h1>Тест на знание ударений в словах</h1>
       <p>У вас только одна попытка пройти тест.</p>
       <p>Нужно кликнуть на букву на которую падает ударение.</p>
-      <p><b>Время ограничено</b>: {TIME_LIMIT} секунд на слово.</p>
+      <p>
+        <b>Время ограничено</b>: {TIME_LIMIT} секунд на слово.
+      </p>
       <br />
       <p>Для прохождения теста, введите фамилию и имя:</p>
-      <form onSubmit={onNextPage}>
+      <form onSubmit={handleSubmit}>
         <input
           className="ant-input"
           type="text"
@@ -28,7 +34,7 @@ export default function Welcome({ onNextPage, name, setName }) {
           disabled={isBtnDisabled}
         >
           Начать
-      </button>
+        </button>
       </form>
     </div>
   );
