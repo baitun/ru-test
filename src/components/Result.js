@@ -2,8 +2,11 @@ import React, { useEffect } from "react";
 import { encode, ymUserParams } from "../utils";
 
 function getGrade(correct, total) {
-  let res = (correct / total) * 5; // (5 - 2) + 2;
-  return Math.round(res);
+  // let res = (correct / total) * (5 - 2) + 2;
+  // return Math.round(res);
+  if (correct >= 140) return 5;
+  if (correct >= 120) return 4;
+  return 3;
 }
 
 // for (let i = 0; i <= 100; i++) {
