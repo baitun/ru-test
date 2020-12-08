@@ -20,7 +20,7 @@ export default function Welcome({ onNextPage, name, setName }) {
       <p>Для прохождения теста, введите фамилию и имя:</p>
       <form onSubmit={handleSubmit}>
         <input
-          className="ant-input"
+          className="ant-input ym-record-keys"
           type="text"
           value={name}
           onChange={handleChange}
