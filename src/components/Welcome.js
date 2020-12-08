@@ -1,4 +1,5 @@
 import React from "react";
+import { ymUserParams } from "../utils";
 import { TIME_LIMIT } from "./constants";
 
 export default function Welcome({ onNextPage, name, setName }) {
@@ -6,6 +7,7 @@ export default function Welcome({ onNextPage, name, setName }) {
   const isBtnDisabled = name.length < 4;
   function handleSubmit(e) {
     e.preventDefault();
+    ymUserParams({ name: name });
     onNextPage();
   }
   return (
