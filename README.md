@@ -1,2 +1,1 @@
-# udarenie-test
-Created with CodeSandbox
+# Russian lenguage test
