@@ -11,3 +11,9 @@ export function ymUserParams(params) {
     window.ym(69444790, "userParams", { ...params });
   }
 }
+
+export function reachGoal(goalId) {
+  if(window.ym) {
+    window.ym(69444790,'reachGoal',goalId);
+  }
+}

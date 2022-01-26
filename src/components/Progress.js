@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { reachGoal } from "../utils";
 import wordsOriginal from "../words";
 import { TIME_LIMIT } from "./constants";
 import Timer from "./Timer";
@@ -57,10 +58,13 @@ export default function Progress({ onNextPage, name }) {
       } else {
         localStorage.setItem("answers", JSON.stringify(answers));
         onNextPage();
+        reachGoal("finished");
         return undefined;
       }
     });
     setSelectedPosition(undefined);
+    if (wordNumber === 0) reachGoal("started");
+    if (wordNumber === Math.round(words.length / 2)) reachGoal("halfway");
   }
   const letterClick = (ch, i) => () => {
     if (isVowel(ch)) setSelectedPosition(i);
